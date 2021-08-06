@@ -8,14 +8,58 @@
           <v-spacer />
           <v-spacer />
           <v-spacer />
-          
         </v-toolbar>
 
         <v-container>
           <v-row class="mx-2">
+            <v-col cols="12">Media Uploader<v-divider></v-divider></v-col>
+
+            <v-col cols="12">
+              <center>
+                <v-btn dark large
+                  >Upload Media <v-icon>mdi-upload</v-icon></v-btn
+                >
+              </center>
+            </v-col>
+            <v-col cols="12">
+              <v-slide-group
+                v-model="model"
+                class="pa-0 ma-0"
+                active-class="success"
+                show-arrows
+              >
+                <v-slide-item
+                  v-for="n in 10"
+                  :key="n"
+                  v-slot:default="{ active, toggle }"
+                >
+                  <v-card
+                    :color="active ? undefined : 'grey lighten-1'"
+                    class="ma-2"
+                    height="200"
+                    width="200"
+                    @click="toggle"
+                  >
+                    <v-row class="fill-height" align="center" justify="center">
+                      <v-scale-transition>
+                        <v-icon
+                          v-if="active"
+                          color="white"
+                          size="48"
+                          v-text="'mdi-close-circle-outline'"
+                        ></v-icon>
+                      </v-scale-transition>
+                    </v-row>
+                  </v-card>
+                </v-slide-item>
+              </v-slide-group>
+            </v-col>
             <v-col cols="12"
               >Master Product Detail<v-divider></v-divider
             ></v-col>
+            <v-col cols="12">
+              <v-text-field label="Product Name" dense filled></v-text-field>
+            </v-col>
             <v-col cols="4">
               <v-text-field label="Design Code" dense filled></v-text-field>
             </v-col>
@@ -71,6 +115,15 @@
                 label="Price To Follow"
               ></v-autocomplete>
             </v-col>
+            <v-col cols="12">Detail Of Product<v-divider></v-divider></v-col>
+            <v-col cols="12">
+              <v-textarea
+                auto-grow
+                filled
+                label="Item Description"
+                placeholder="Please elaborate more about the item"
+              />
+            </v-col>
             <v-col cols="12">Customer Visibility<v-divider></v-divider></v-col>
             <v-col cols="1">
               <v-checkbox
@@ -115,18 +168,16 @@
           </v-row>
           <v-row class="mx-2">
             <v-col cols="12">Stock Entry<v-divider></v-divider></v-col>
-            
+
             <v-col cols="12">
-              <stocktable/>
+              <stocktable />
             </v-col>
           </v-row>
         </v-container>
 
         <v-card-actions>
-          
           <v-spacer />
-          
-  
+
           <v-btn color="teal" dark large>Save</v-btn>
         </v-card-actions>
       </v-card>
@@ -134,8 +185,8 @@
   </v-layout>
 </template>
 <script>
-import stocktable from "~/components/stocktable.vue";
-export default{
+import stocktable from '~/components/stocktable.vue'
+export default {
   components: { stocktable },
   data: () => ({
     date: new Date().toISOString().substr(0, 10),
@@ -143,7 +194,7 @@ export default{
     modal: false,
     menu2: false,
     valid: true,
-    
+
     name: '',
     nameRules: [
       (v) => !!v || 'Name is required',
@@ -153,12 +204,21 @@ export default{
 
     select: null,
     items: ['Enamel', 'Zirconia Stone', 'Pure Stone', 'Gold Plated', 'Plastic'],
-     cat_type: ['Bangle','Bracelet','Ring','Anklet','Necklace','Dangle','Bead','Pendant','Others'],
-    itmpurity: ['916','999.9','999','Gold Plated'],
-    preorderstatus: ['Pre-Order','Cant Pre-Order (Limited)'],
-    priceformula: ['Formula D','Formula C','Formula B','Formula A'],
+    cat_type: [
+      'Bangle',
+      'Bracelet',
+      'Ring',
+      'Anklet',
+      'Necklace',
+      'Dangle',
+      'Bead',
+      'Pendant',
+      'Others',
+    ],
+    itmpurity: ['916', '999.9', '999', 'Gold Plated'],
+    preorderstatus: ['Pre-Order', 'Cant Pre-Order (Limited)'],
+    priceformula: ['Formula D', 'Formula C', 'Formula B', 'Formula A'],
     checkbox: false,
   }),
-  
 }
 </script>
