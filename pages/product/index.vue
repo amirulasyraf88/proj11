@@ -34,8 +34,8 @@
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
 
-          <v-switch class="pt-5 pr-5" label="Normal 916"></v-switch>
-          <v-switch class="pt-5 pr-5" label="Heavy Weight"></v-switch>
+          <v-switch class="pt-5 pr-5" label="916 > 10g"></v-switch>
+          <v-switch class="pt-5 pr-5" label="916 < 10g"></v-switch>
           <v-switch class="pt-5 pr-5" label="White Label"></v-switch>
           <v-switch class="pt-5 pr-5" label="Black Label"></v-switch>
 
@@ -103,21 +103,21 @@
                       ></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="4" md="4">
-                      <v-text-field
-                        outlined
+                      <v-select
                         v-model="editedItem.labfee_3"
-                        label="Extra Fee (fixed)"
-                        prefix="RM"
-                        suffix="/pcs"
-                        type="number"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="4" md="4">
-                      <v-text-field
+                        :items="formula"
+                        label="Price Formula"
                         outlined
+                      ></v-select>
+                    </v-col>
+
+                    <v-col cols="4">
+                      <v-select
                         v-model="editedItem.prem_code"
-                        label="Premium Code"
-                      ></v-text-field>
+                        :items="premium"
+                        label="Premium"
+                        outlined
+                      ></v-select>
                     </v-col>
                   </v-row>
                 </v-container>
@@ -149,6 +149,14 @@ export default {
   data: () => ({
     search: '',
     dialog: false,
+    formula: ['Formula A', 'Formula B', 'Formula C', 'Formula D', 'Formula E'],
+    premium: [
+      'No Premium',
+      'Black Label',
+      'White Label',
+      'Gold Plated',
+      'Swarovski',
+    ],
     headers: [
       {
         text: 'Product Name',
@@ -163,6 +171,7 @@ export default {
       { text: 'Weight Appox', value: 'weight_appox' },
       { text: 'Labor Fee (gram)', value: 'labfee_1' },
       { text: 'Labor Fee (fixed)', value: 'labfee_2' },
+      { text: 'Price Formula', value: 'labfee_3' },
       { text: 'Stock Availibility', value: 's_avail' },
       { text: 'Premium Code', sortable: false, value: 'prem_code' },
       { text: 'Action', value: 'actions', sortable: false },
@@ -176,7 +185,7 @@ export default {
       weight_appox: 0,
       labfee_1: 0,
       labfee_2: 0,
-      labfee_3: 0,
+      labfee_3: '',
       prem_code: '',
     },
     defaultItem: {
@@ -186,7 +195,7 @@ export default {
       labfee_1: 0,
       labfee_2: 0,
       weight_appox: 0,
-      labfee_3: 0,
+      labfee_3: '',
       prem_code: '',
     },
   }),
@@ -215,7 +224,7 @@ export default {
           labfee_1: 17.26,
           labfee_2: 17.26,
           fac_code: 'RK9384',
-          labfee_3: 22.3,
+          labfee_3: 'Formula A',
           design_code: 'GGH92983',
         },
         {

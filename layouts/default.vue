@@ -96,18 +96,18 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Pre-Order',
-          to: '/order'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Master Product',
-          to: '/gold-var'
-        },
-        {
-          icon: 'mdi-chart-bubble',
           title: 'Price Formula',
           to: '/priceformula'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Customer',
+          to: '/CRM'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Track Record',
+          to: '/track-record'
         }
       ],
       miniVariant: false,

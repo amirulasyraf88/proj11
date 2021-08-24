@@ -11,27 +11,38 @@
   >
     <template v-slot:top>
        
-    
+    <v-toolbar dark>
+          <v-icon>mdi-atom</v-icon>&nbsp;<v-toolbar-title
+            >Price Formula Lab</v-toolbar-title
+          >
+
+          
+        </v-toolbar>
        <v-toolbar flat color="teal" dark dense>
+         
 
           <v-row class="pt-4 mt-0">
                   <v-col cols="2" sm="2" md="2" class="pl-2 ml-0 pr-0 mr-0">
                     <v-text-field solo dense light label="Formula Name"></v-text-field>
                   </v-col>
                   <v-col cols="2" sm="2" md="2" class="pl-2 ml-0 pr-0 mr-0">
-                    <v-text-field solo dense light label="SVIP" type="number"></v-text-field>
+                    <v-text-field solo dense light label="SVIP" type="number" prefix="RM"
+                        suffix="/gram"></v-text-field>
                   </v-col>
                   <v-col cols="2" sm="2" md="2" class="pl-2 ml-0 pr-0 mr-0">
-                    <v-text-field solo dense light label="VIP" type="number"></v-text-field>
+                    <v-text-field solo dense light label="VIP" type="number" prefix="RM"
+                        suffix="/gram"></v-text-field>
                   </v-col>
                   <v-col cols="2" sm="2" md="2" class="pl-2 ml-0 pr-0 mr-0">
-                    <v-text-field solo dense light label="WH" type="number"></v-text-field>
+                    <v-text-field solo dense light label="WH" type="number" prefix="RM"
+                        suffix="/gram"></v-text-field>
                   </v-col>
                   <v-col cols="2" sm="2" md="2" class="pl-2 ml-0 pr-0 mr-0">
-                    <v-text-field solo dense light label="USER" type="number"></v-text-field>
+                    <v-text-field solo dense light label="USER" type="number" prefix="RM"
+                        suffix="/gram"></v-text-field>
                   </v-col>
                   <v-col cols="2" sm="2" md="2" class="pl-2 ml-0 pr-0 mr-0">
-                    <v-text-field solo dense light label="PURITY EXC" type="number"></v-text-field>
+                    <v-text-field solo dense light label="PURITY EXC" type="number" ></v-text-field>
                   </v-col>
                   
         </v-row>

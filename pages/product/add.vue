@@ -52,14 +52,14 @@
               ></v-select>
             </v-col>
             <v-col cols="4">
-              <v-select
+              <v-autocomplete
                 v-model="value"
                 :items="Size"
                 label="Size (Pre-order)"
                 multiple
-                
+                chips
                 outlined
-              ></v-select>
+              ></v-autocomplete>
             </v-col>
             <v-col cols="4">
               <v-select
@@ -67,6 +67,7 @@
                 :items="premium"
                 label="Premium"
                 outlined
+                
               ></v-select>
             </v-col>
             <v-col cols="4">
@@ -75,7 +76,7 @@
                 outlined
                 label="Approximate Weight"
                 value="8.88"
-                suffix="gram"
+                suffix="/gram"
               />
             </v-col>
             <v-col cols="12">Pricing Strategy<v-divider></v-divider></v-col>
@@ -86,7 +87,7 @@
                 label="Labor Charge (/gram)"
                 value="10.00"
                 prefix="RM"
-                suffix="gram"
+                suffix="/gram"
               />
             </v-col>
             <v-col cols="4">
@@ -96,7 +97,7 @@
                 label="Labor Charge (Fixed)"
                 value="10.00"
                 prefix="RM"
-                suffix="pcs"
+                suffix="/pcs"
               />
             </v-col>
             <v-col cols="4">
@@ -114,6 +115,7 @@
                 :items="cusvisibility"
                 label="Customer Visibility"
                 outlined
+                chips
                 multiple
               ></v-select>
             </v-col>
@@ -124,6 +126,7 @@
                 label="Pre-Order Visibility"
                 outlined
                 multiple
+                chips
               ></v-select>
             </v-col>
             <v-col cols="12">Detail Of Product<v-divider></v-divider></v-col>
